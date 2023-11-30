@@ -1,37 +1,17 @@
 <main>
     <section class="tarefas">
-        <div class="tarefa">
+        {{#each tarefas}}
+            <div class="tarefa">
             <form action="">
                 <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de javasript</label>
+                    <input type="checkbox" id="tarefa-{{this.id}}">
+                    <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
                 </div>
 
                 <button><img src="/images/x.png" alt="icone do x para excluir uma tarefa"></button>
             </form>
         </div>
-
-        <div class="tarefa">
-            <form action="">
-                <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de javasript</label>
-                </div>
-
-                <button><img src="/images/x.png" alt="icone do x para excluir uma tarefa"></button>
-            </form>
-        </div>
-
-        <div class="tarefa">
-            <form action="">
-                <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de javasript</label>
-                </div>
-
-                <button><img src="/images/x.png" alt="icone do x para excluir uma tarefa"></button>
-            </form>
-        </div>
+        {{/each}}
 
         <div class="informacoes">
             <p>5 tarefas ativas</p>
