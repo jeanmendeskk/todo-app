@@ -69,6 +69,10 @@ app.post('/criar', (require, response) => {
     })
 })
 
+app.get('/ativas', (require, response) => [
+    
+])
+
 app.get('/', (require, response) => {
     const sql = 'SELECT * FROM tarefas'
 
