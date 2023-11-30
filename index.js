@@ -15,6 +15,24 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.post('/completar', (require, response) => {
+    const id = require.body.id
+
+    const sql = `
+        UPDATE tarefas
+        SET completa = '1'
+        WHERE ID =  ${id}
+    `
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro)
+        }
+
+        response.redirect('/')
+    })
+})
+
 app.post('/criar', (require, response) => {
     const descricao = require.body.descricao
     const completa = 0

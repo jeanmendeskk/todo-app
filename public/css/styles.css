@@ -133,6 +133,10 @@ main {
     justify-content: space-between;
 }
 
+.completa label {
+    text-decoration: line-through;
+}
+
 .tarefa div {
     display: flex;
     align-items: center;
