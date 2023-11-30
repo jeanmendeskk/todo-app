@@ -9,6 +9,30 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
 
+app.use(express.urlencoded({
+    extended: true
+}))
+
+app.use(express.json())
+
+app.post('/criar', (require, response) => {
+    const descricao = require.body.descricao
+    const completa = 0
+
+    const sql = `
+        INSERT INTO tarefas(descricao, completa)
+        VALUES ('${descricao}', '${completa}')
+    `
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro)
+        }
+
+        response.redirect('/')
+    })
+})
+
 app.get('/', (require, response) => {
     response.render('home')
 })
