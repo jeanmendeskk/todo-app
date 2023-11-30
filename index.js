@@ -15,6 +15,23 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.post('/excluir', (require, response) => {
+    const id = require.body.id
+
+    const sql = `
+        DELETE FROM tarefas
+        WHERE id = ${id}
+    `
+
+    conexao.query(sql, (erro, dados) => {
+        if(erro) {
+            return console.log(erro)
+        }
+
+        response.redirect('/')
+    })
+})
+
 app.post('/completar', (require, response) => {
     const id = require.body.id
 
